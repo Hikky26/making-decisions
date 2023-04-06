@@ -13,3 +13,13 @@ for(let i = 0; i < array.length; i++){
     }
 }
 console.log(min + ' , ' + max)
+
+
+//Editing arrays
+// (array).pop() removes the last item in the array
+// (array).shift() removes the first item from an array
+// (array).unshift() adds an item to the front of an array
+// (array).slice(#,#) makes a copy of the array according to the range that was indicated in the argument
+// (array).splice(target index, # of items to be removed starting at index, values to replace) can remove values and replace it 
+// (array).length  gives the length of the array. THIS IS A PROPERTY!
+

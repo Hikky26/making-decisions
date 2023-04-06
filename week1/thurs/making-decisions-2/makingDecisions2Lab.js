@@ -1,4 +1,4 @@
-// For problems 1-2 use the following lines of code:
+code// For problems 1-2 use the following lines of code:
 var arr = [10,20,30,40,50,60]
 
 ////////// PROBLEM 1 //////////
