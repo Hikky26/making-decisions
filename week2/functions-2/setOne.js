@@ -15,11 +15,23 @@ The code above is an example of 'function declaration.' Please re-write the func
 */
 
 // RE-WRITE THE ABOVE FUNCTION IN 'FUNCTION EXPRESSION' SYNTAX HERE.
-
+const findGrapeExp = function(arr){
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i].color === "purple") {
+            return console.log(`The fruit with index ${arr.indexOf(arr[i])} is a grape`)
+        } 
+    }
+}
 
 
 // RE-WRITE THE ABOVE FUNCTION IN 'ARROW FUNCTION' SYNTAX HERE.
-
+const findGrapeArr = (arr) => {
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i].color === "purple") {
+            return console.log(`The fruit with index ${arr.indexOf(arr[i])} is a grape`)
+        } 
+    }
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -28,10 +40,11 @@ Write a one line function (give a name of your choice) with an implicit return t
 */
 
 // CODE HERE
+const heyFunc = (parameter1, parameter2) => console.log(`The first parameter is ${parameter1}. The second parameter is ${parameter2}`)
 
 
 // INVOKE THE FUNCTION HERE. THE PARAMETERS TAKE ANY DATATYPE.
-
+heyFunc('this', 'you')
 
 ////////// PROBLEM 3 //////////
 /*
@@ -40,7 +53,14 @@ Then, outside of the greeting function, invoke the greeting function, passing in
 */
 
 // CODE 'GREETING FUNCTION' HERE
+const greeting = (fn, ln, cb) => {
+    return console.log(cb(fn,ln))
+}
+const callbackFullName = (first, last) => {
+    return `${first} ${last}!`
+}
 
+greeting('janet', 'jones', callbackFullName)
 
 // INVOKE 'GREETING FUNCTION' HERE
 
@@ -58,6 +78,13 @@ Write a function called 'pricesPlusTax' that takes 2 params: an array ('prices' 
 */
 
 // CODE HERE
+pricesPlusTax = (arr, callback) => {
+    for(i=0; i<arr.length; i++){
+        a = arr[i] + arr[i]*.2
+        totalCost.push(a)
+    }
+    callback(totalCost)
+}
 
 
 /* 
@@ -65,6 +92,12 @@ Invoke the 'pricesPlusTax' function, passing in the 'prices' array and a callbac
 */
 
 // CODE HERE
+const cb1 = (totalCost) => {
+    return console.log(`The new array plus tax = ${totalCost}`)
+}
+
+pricesPlusTax(prices, cb1)
+
 
 
 ////////// PROBLEM 5 //////////
@@ -78,6 +111,15 @@ The inner function should run this logic: if the first number passing in is grea
 */
 
 // CODE HERE
+const multiplyingFactory = (num1) => {
+    return function(num2){
+        if (num1 >=5){
+            return console.log(num1 * num2)
+        }else{
+            return console.log('Cannot multiply: the first number is smaller than 5')
+        }
+    }
+}
 
 
 /* 
@@ -85,6 +127,7 @@ Let's invoke the 'multiplyingFactory' function that will return another function
 */
 
 // CODE HERE
+let timesFour = multiplyingFactory(3)
 
 
 /* 
@@ -96,8 +139,11 @@ Run the code in node to see the printed result. You should see "Cannot multiply:
 */
 
 // INVOKE 'timesFour' HERE
+timesFour(4)
 
 
 /* 
 Change the param for 'multiplyingFactory' invocation to number 5. Then invoke 'timesFour' again, passing in number 4. Run the code in node, and you should see 20.
 */
+timesFour = multiplyingFactory(5)
+timesFour(4)
