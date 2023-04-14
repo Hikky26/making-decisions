@@ -95,9 +95,9 @@ console.log(emp2)
 
 //CODE HERE
 class Manager extends Employee{
-    constructor(name, shifts){
+    constructor(name, shifts, employees){
         super(name,shifts)
-        this.employees = []
+        this.employees = [employees]
     }
     getEmployees(){
         console.log(this.name, 'manages', this.employees)
@@ -120,7 +120,7 @@ class Manager extends Employee{
 */
 
 //CODE HERE
-let manager = new Manager('Hikmah', ['weekday mornings', 'weekday afternoons']) 
+let manager = new Manager('Hikmah', ['weekday mornings', 'weekday afternoons'], ('Cici','Winny')) 
 manager.addEmployee('Cece')
 manager.addEmployee('Winston')
 
