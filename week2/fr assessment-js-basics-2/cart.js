@@ -34,11 +34,13 @@ const cart = [
 ]
 
 //CODE HERE
-sumCartFood = (arr) => {
-    
+//callback inclues the starting total variable, the variable for price, and must return the summed value
+const sumCartFood = (start, pr) => {
+    return (start + pr.price)
 }
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce(sumCartFood,0)
+console.log(summedPrice)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -57,7 +59,11 @@ sumCartFood = (arr) => {
 */
 
 //CODE HERE
-
+function calcFinalPrice (cartTotal, couponValue, tax){
+    cartTotal = cartTotal * (1+tax);
+    cartTotal = cartTotal - couponValue;
+    return cartTotal
+}
 
 
 //////////////////PROBLEM 3////////////////////
@@ -82,6 +88,12 @@ sumCartFood = (arr) => {
 
 /*
     TEXT ANSWER HERE
+    A restaurant would probably need
+    -name
+    -email
+    -phone number
+    -birthday
+    -fave order
 
 */
 
@@ -91,3 +103,12 @@ sumCartFood = (arr) => {
 */
 
 //CODE HERE
+const loyalCust = {
+    'first name': 'Hikmah',
+    'last name' : 'A',
+    'email': 'ilovepizza@foodie.com',
+    'phone number': '2222222222',
+    'birthday': 0231,
+    'fave order': 'cheese pizza'
+
+}
