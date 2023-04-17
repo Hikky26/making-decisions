@@ -22,7 +22,8 @@
 */
 
 //CODE HERE
-
+const greetUser = (username) => `Welcome back ${username}`
+console.log(greetUser('Hikmah'))
 
 
 
@@ -50,7 +51,15 @@
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-
+const canWeDeliver = function(zipCode) {
+    if(deliveryAreaZipCodes.includes(zipCode)){
+        return 'You are eligible for delivery!'
+    }else if(!deliveryAreaZipCodes.includes(zipCode)){
+        return 'Sorry, we are unable to deliver to this area'
+    }
+}
+console.log(canWeDeliver(12345))
+console.log(canWeDeliver(85204))
 
 
 /* 
@@ -71,7 +80,17 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
+const canWeDeliverTwo = (zipcode) => {
+    for(i = 0; i<deliveryAreaZipCodes.length;i++){
+        if(deliveryAreaZipCodes[i] === zipcode){
+            return 'You are eligible for delivery!'
+        }    
+    }
+    return 'Sorry, we are unable to deliver to this area'
+}
 
+console.log(canWeDeliverTwo(12345))
+console.log(canWeDeliverTwo(85204))
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -107,6 +126,15 @@ const deals = [
 */
 
 //CODE HERE
+let title = deals[0].title
+//i need to check if i am right
+
+console.log(title)
+//yes i am
+
+
+title = title.replace('15','10')
+console.log(title)
 
 
 
@@ -124,3 +152,8 @@ const deals = [
 */
 
 //CODE HERE
+let deal2 = deals[1].desc
+console.log(deal2)
+
+deal2 = deal2.replace('March', 'April').trim()
+console.log(deal2)
