@@ -31,7 +31,14 @@
 */
 
 //CODE HERE
-
+const  pizza = {
+    name: 'Meat Supreme',
+    price: 16.99,
+    category: 'entree',
+    popularity: 4,
+    rating: 8.7,
+    tags: ["chef's special", 'meat lovers', 'beef','chicken','turkey']
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,6 +50,7 @@
 */
 
 //CODE HERE
+console.log(pizza.popularity)
 
 
 /*
@@ -53,6 +61,7 @@
 */
 
 //CODE HERE
+console.log(pizza.tags[1])
 
 
 /*
@@ -63,6 +72,8 @@
 */
 
 //CODE HERE
+let {price} = pizza
+console.log(price)
 
 
 /*
@@ -73,6 +84,9 @@
 */
 
 //CODE HERE
+let{category} = pizza
+console.log(category)
+
 
 
 //////////////////PROBLEM 3////////////////////
@@ -89,6 +103,50 @@
 
 //CODE HERE
 
+const foodArr = [
+    chickenTenders = {
+        name: 'Chiken Tenderz',
+        price: 8.99,
+        category: 'entree',
+        popularity: 2,
+        rating: 9.4,
+        tags:['chicken','combo','single']
+    },
+    loadedFries = {
+        name: 'Loaded Fryz',
+        price: 6.99,
+        category: 'appetizer',
+        popularity: 5,
+        rating: 8.2,
+        tags:['potato','cheese','share']
+    },
+    garlicKnots = {
+        name: 'Garlik Knotz',
+        price: 2.99,
+        category: 'appetizer',
+        popularity: 6,
+        rating: 8.0,
+        tags:['bread','combo','single']
+    },
+    chickenWings = {
+        name: 'Wyngz',
+        price: 10.99,
+        category: 'entree',
+        popularity: 1,
+        rating: 9.8,
+        tags:['chicken','combo','share']
+
+    },
+    slushie = {
+        name: 'Slushy',
+        price: 2.49,
+        category: 'beverage',
+        popularity: 3,
+        rating: 8.4,
+        tags:['beverage','variety','single']
+    }
+]
+
 
 
 //////////////////PROBLEM 4////////////////////
@@ -104,8 +162,16 @@
 */
 
 //CODE HERE
+function filterTag(obj, tag){
+    return obj.tags.includes(tag)
+}
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(function(obj){
+    return filterTag(obj, 'single')
+});
+
+console.log(filteredFood)
+
 
 
 
@@ -149,13 +215,28 @@
 */
 
 //CODE HERE
+const filterByProperty = (property, number, type) => {
+
+    let  filArr = [];
+
+    if (type === 'above'){
+        filArr = foodArr.filter(food => food[property] > number)
+    }else if(type === 'below'){
+        filArr = foodArr.filter(prop => prop[property] < number)
+    }
+    return filArr
+}
 
 
 /*
     Invoke the `filterByProperty` function passing
+
     in a value for each paramter.
 
     You'll have to console.log to see the filtered array
 */
 
 //CODE HERE
+console.log(filterByProperty('price', 9, 'above'))
+console.log(filterByProperty('rating', 9, 'below'))
+console.log(filterByProperty('popularity', 4, 'above'))
