@@ -103,12 +103,12 @@ function calcFinalPrice (cartTotal, couponValue, tax){
 */
 
 //CODE HERE
-const loyalCust = {
-    'first name': 'Hikmah',
-    'last name' : 'A',
-    'email': 'ilovepizza@foodie.com',
-    'phone number': '2222222222',
-    'birthday': 0231,
-    'fave order': 'cheese pizza'
+let loyalCust = {
+    firstName: 'Hikmah',
+    lastName : 'A',
+    email: 'ilovepizza@foodie.com',
+    phoneNumber: '2222222222',
+    birthday: 0231,
+    faveOrder: 'cheese pizza'
 
 }
