@@ -1,0 +1,58 @@
+
+#v {
+    display: flex;
+}
+
+#top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    width: 100% ; 
+    background-color: rgb(59, 57, 57);
+    z-index: 4;
+}
+
+
+#right{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: rgb(233, 229, 229);
+    z-index: 3;
+    height: 100%;
+    width: 100px;
+
+}
+#left{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgb(233, 229, 229);
+    z-index: 2;
+    height: 100%;
+    width: 100px
+}
+
+/* #mid {
+    align-self: center;
+    background-color: white;
+    border-left: 150px;
+    border-left-color: grey;
+    border-right: 150px;
+    border-right-color: grey;
+    z-index: 2; */
+
+
+#bottom{
+    /* z-index: 1; */
+    background-color: black;
+    height: 75px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+}:last-ch
