@@ -1,0 +1,29 @@
+#header{
+    border-style: double;
+}
+h1{
+    text-align: center;
+    border-style: none none solid none;
+}
+#boxes{display: grid;
+gap: 2px;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows: repeat(3,1fr);
+}
+.box{
+    border-style: groove;
+    border-color: rgb(61, 7, 61);
+    font-size: large;
+    font: chancery; 
+    font-family: cursive;
+}
+#boxes .box p{
+    text-align: center;
+}
+#boxes .box li{
+    font-weight: 100;
+}
+#poem{
+    font-size: 18px ;
+    font-style: oblique;
+}
