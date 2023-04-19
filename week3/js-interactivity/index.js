@@ -26,8 +26,11 @@ const addMovie = (evnt) => {
 }
 
 const deleteMovie = (evnt) => {
-    evnt.target.parentNode.remove()
-    message.textContent = 'MOVIE Deleted!'
+    let  holdParent = evnt.target.parentNode
+    holdParent.remove();
+    let tytle = holdParent.firstChild.textContent;
+    message.textContent = `${tytle} has been deleted!`
+    revealMessage()
 }
 
 form.addEventListener('submit', addMovie)
@@ -36,13 +39,18 @@ form.addEventListener('submit', addMovie)
 const crossedOffMovie = (evnt) => {
     evnt.target.classList.toggle('checked')
     if(evnt.target.classList.contains('checked')){
-        message.textContent = 'MOVIE Watched!'
+        message.textContent = `${evnt.target.textContent} watched!`;
     }else{
-        message.textContent = 'MOVIE added back!'
-
+        message.textContent = `${evnt.target.textContent} added back!`;
     }
+    revealMessage()
 }
-
-
+const revealMessage =() => {
+    message.classList.remove('hide')
+    const cb = () =>{
+        message.classList.add('hide')
+    }
+    setTimeout(cb, 1000);
+}
 
 
