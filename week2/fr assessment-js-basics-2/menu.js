@@ -31,7 +31,7 @@
 */
 
 //CODE HERE
-const  pizza = {
+let  pizza = {
     name: 'Meat Supreme',
     price: 16.99,
     category: 'entree',
@@ -103,7 +103,7 @@ console.log(category)
 
 //CODE HERE
 
-const foodArr = [
+let foodArr = [
     chickenTenders = {
         name: 'Chiken Tenderz',
         price: 8.99,

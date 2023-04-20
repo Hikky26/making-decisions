@@ -1,0 +1,64 @@
+#r1 {
+    border-style: solid;
+    background-color: white;
+    display: inline-flex;
+    justify-content: flex-start;
+    height: 25%;
+    width: 99%;
+    align-items: flex-end;
+    gap: 25px;
+    padding: 5px;
+}
+#rectangle1{
+    background-color: rebeccapurple;
+    height: 75%;
+    width: 25;
+    
+}
+#rectangle2{
+    height: 98%;
+    width: 200;
+    background-color: rgb(35, 158, 35);
+}
+#circle{
+    width: 100px;
+    height: 98%;
+    background-color: rgb(144, 204, 224);
+    border-radius: 50%;
+}
+
+
+
+
+
+
+#r2{
+    border-style: dotted;
+    background-color: white;
+    height: 250px;
+}
+#post-it {
+    background-color: rgb(237, 237, 173);
+    border-style: outset;
+    box-shadow: 5, 5, darkgrey;
+    height:auto
+}
+
+
+
+
+#r3{
+    border-style: outset;
+    box-shadow: 3px 3px 2px -5px grey;
+    background-color: white;
+    height: 275px;
+}
+#r3 p{
+    text-align: center;
+    font-weight: 600;
+    font-size: 60px;
+    color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-stretch: condensed;
+
+}
