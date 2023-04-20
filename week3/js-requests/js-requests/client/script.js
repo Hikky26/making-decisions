@@ -2,6 +2,9 @@
 //THE TEST SERVER IS RUNNING ON LOCALHOST:3000//
 ////////////////////////////////////////////////
 
+
+
+
 // PROBLEM 1
 /*
     In the index.html file in this folder there is a button with an id of 'say-hello-button'!
@@ -22,24 +25,35 @@ const sayHelloButton = document.querySelector('#say-hello-button');
 */
 
 // CODE HERE
+
 const changeHelloBtn = (event) => {
     // sayHelloButton.classList.add('button-color')
-    sayHelloButton.style.backgroundColor
+    event.preventDefault()
+    sayHelloButton.style.backgroundColor = 'black'
+    sayHelloButton.style.color = 'white'
+    setTimeout(resetColor, 3000)
 }
+
 sayHelloButton.addEventListener('mouseover', changeHelloBtn)
+
 
 
 // PROBLEM 3
 /*
-    Now you can see that the button colors change, but they do not change back when we take the mouse off of the button.
+Now you can see that the button colors change, but they do not change back when we take the mouse off of the button.
 
-    Write another function that changes the button back to its original colors. #EFEFEF for the background and black for the text.
+Write another function that changes the button back to its original colors. #EFEFEF for the background and black for the text.
 
-    Attach another listener that fires your second function when the mouseout event occurs on the button
+Attach another listener that fires your second function when the mouseout event occurs on the button
 */
 
 // CODE HERE
 
+const resetColor = () => {
+    sayHelloButton.style.backgroundColor = ""
+    sayHelloButton.style.color = ""
+}
+sayHelloButton.addEventListener('mouseout', resetColor)
 
 // PROBLEM 4
 /*
@@ -60,6 +74,7 @@ const sayHello = () => {
 // DO NOT EDIT FUNCTION
 
 // CODE HERE
+sayHelloButton.addEventListener('click', sayHello)
 
 
 // PROBLEM 5 
@@ -73,8 +88,21 @@ const sayHello = () => {
     Handle the promise that's returned with a .then, which you should pass a callback function to. Inside the callback function, console.log the response's data (in the intermediate instructions we'll come back to this function and add HTML).
 */ 
 
-const ohMy = () => {
+const ohMy = (event) => {
     // YOUR CODE HERE
+    event.preventDefault()
+    axios.get('http://localhost:3000/animals')
+    .then(response => {
+        for(i=0; i<response.data.length; i++){
+            let body = document.querySelector('body')
+            let newP = document.createElement('p');
+            newP.textContent = response.data[i]
+            body.appendChild(newP)
+        }
+    })
+    .catch(e => {
+        console.log(e)
+    })
 }
 
 document.getElementById('animals-button').addEventListener('click', ohMy)
@@ -93,9 +121,23 @@ document.getElementById('animals-button').addEventListener('click', ohMy)
     We'll be updating this function in the next problem.
 */
 
-const repeatMyParam = () => {
+let repeatBtn = document.getElementById('repeat-button')
+
+const repeatMyParam = (event) => {
     //YOUR CODE HERE
+    event.preventDefault()
+    let repeatText = document.getElementById('repeat-text')
+    
+    axios.get(`http://localhost:3000/repeat/ok`)
+    .then(res => {
+        repeatText.textContent = res.data
+        repeatText.style.display = 'block'
+        console.log(res.data)
+    })
+    
 }
+
+repeatBtn.addEventListener('click', repeatMyParam)
 
 // PROBLEM 7
 /*
@@ -120,8 +162,14 @@ const repeatMyParam = () => {
 */
 
 // CODE HERE
-
-
+const reqQuery = (event) => {
+    event.preventDefault()
+    axios.get(`http://localhost:3000/query-test/?me/?you`)
+    .then(res => {
+        console.log(res.data)
+    })
+}
+document.querySelector('#query-button').addEventListener('click', reqQuery)
 
 ////////////////
 //INTERMEDIATE//
@@ -141,8 +189,10 @@ const repeatMyParam = () => {
     In the function that you wrote for Problem 8, change the URL to test a couple different scenarios. 
 
     1: Send no queries on the URL -- what happened? 
+    It printed 
 
     2: Send more than 1 query on the URL -- what happened? 
+    Doesnot work. It prints both strings
 */
 
 // Edit code in Problem 8
@@ -173,3 +223,6 @@ const repeatMyParam = () => {
 */
 
 // CODE HERE 
+const createFood = () => {
+    
+}
