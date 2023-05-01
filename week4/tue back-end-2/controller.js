@@ -35,7 +35,7 @@ module.exports= {
 
         }else if(type ==='minus'){
             db[ind].price -= 10000
-            res.status(200).send(db)
+            gitres.status(200).send(db)
             
         }
     }
