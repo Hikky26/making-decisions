@@ -8,6 +8,14 @@ module.exports = {
         let randomCompliment = compliments[randomIndex];
       
         res.status(200).send(randomCompliment);
+    },
+
+    // the point here is for the user to add affirmations here and have it listed on the site. 
+    makeAffirmation: (req, res) => {
+        //make empty array of words
+        let wordsOfAffirmation = ["I love who I am"]
+
+        res.status(200).send(wordsOfAffirmation)
     }
 
 }
