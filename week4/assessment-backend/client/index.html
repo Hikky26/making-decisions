@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="style.css">
     <title>Back End Assessment</title>
   </head>
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
-    <div>
-      <form id="affirmation-entry"></form>
-      <label for="affirmation-input">Enter some words of affirmation</label>
-      <input type="text" id="affirmation-input">
-      <button type="submit">Add My Affirmation</button>
+    <button id="fortuneButton">Get a fortune</button>
+    <div id="formDiv">
+      <form class="affirmation-entry">
+        <div id="formContent">
+          <label for="affirmation-input">Enter some words of affirmation</label>
+          <input type="text" id="affirmation-input" lang="en">
+        </div>
+        <div class="formContent">
+          <button type="submit" id="affirmation">Add My Affirmation</button>
+        </div>
+        <div id="listofAffirms">
+          <ul id="listParent">
+
+          </ul>
+        </div>
+        <div id="mood"><h2>How are you Feeling today?</h2>
+        <form>
+          <label for="mood" id="moodLabel">Select how you feel:</label>
+          <select name="moods" id="listOfMoods"></select>
+          <option value="happy" class="moodOpt">Happy</option>
+          <option value="angry" class="moodOpt">Angry</option>
+          <option value="sad" class="moodOpt">Sad</option>
+          <option value="excited" class="moodOpt">Excited</option>
+          <option value="funny" class="moodOpt">Funny</option>
+          <option value="idk" class="moodOpt">I Don't Know</option>
+        </form>
+        </div>
+      </form>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

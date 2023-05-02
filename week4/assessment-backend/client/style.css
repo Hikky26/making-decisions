@@ -1,0 +1,61 @@
+#tempdiv{
+    background-color: gold;
+    color: black;
+    font-weight: 800;
+    font-size: 40px;
+    font-family: Brush Script MT;
+    border: 10px;
+    width: 500px;
+    text-align: center;
+    left: 50%
+    
+}
+
+button{
+    display: inline-block;
+    padding: 20px 30px;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: wavy;
+    outline: auto;
+    color: lavender;
+    background-color: navy;
+    border-radius: 20px;
+    box-shadow: 0 9px #7074ab;
+    margin: 10px;
+}
+button:hover{
+    background-color: rgb(2, 2, 88);
+    box-shadow: 0 5px #7074ab;
+    transform: translateY(4px);
+}
+
+.formContent{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+input{
+    font-size: 20px;
+    width: 400px;
+    left: 50%;
+}
+label{
+    font-size: 30px;
+}
+#formDiv{
+    margin-top: 30px;
+    left: 50px ;
+}
+#formContent{
+    position: relative;
+     
+}
+#affirmation{
+    width: fit-content;
+    
+}
+#listofAffirms{
+    font-size: 20px;
+}

@@ -7,21 +7,25 @@ app.use(cors());
 
 app.use(express.json());
 
-const { getCompliment } = require('./controller')
+const { getCompliment, getFortune, makeAffirmation, changeMood, deleteAffirmation } = require('./controller')
 
 app.get("/api/compliment", getCompliment);
-
-app.listen(4000, () => console.log("Server running on 4000"));
 
 
 //feature 1
 //  add fortune (GET)
+app.get("/api/fortune", getFortune);
 
 //feature 2
-    //add self affirmations(POST)
+//add self affirmations(POST)
+app.post("/api/affirmation", makeAffirmation)
 
 //feature 3
-    // add mood of the day (PUT)
+// replace mood of the day (PUT)
+app.put("/api/mood", changeMood)
 
 //feature 4
-    // delete to do list for self joy?
+// delete affirmations (DELETE)
+app.delete("/api/affirmation", deleteAffirmation)
+
+app.listen(4000, () => console.log("Server running on 4000"));
