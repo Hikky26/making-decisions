@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Back End Assessment</title>
   </head>
@@ -10,28 +13,32 @@
     <div id="formDiv">
       <form class="affirmation-entry">
         <div id="formContent">
-          <label for="affirmation-input">Enter some words of affirmation</label>
-          <input type="text" id="affirmation-input" lang="en">
-        </div>
-        <div class="formContent">
-          <button type="submit" id="affirmation">Add My Affirmation</button>
-        </div>
-        <div id="listofAffirms">
-          <ul id="listParent">
-
-          </ul>
+          <div id="inspiration">
+          <label for="affirmation-input">Feel Inspired? Add some words below</label>
+          <button id="add" class="affbtn">Add Affirmation</button>
+          <button id="delete" class="affbtn">Delete Affirmation</button>
+          <input type="text" id="affirmationInput" placeholder="Enter some words of affirmation">
+          <div>
+            <ul id="listParent">
+                
+            </ul>
+          </div>
+          <div id="listofAffirms">
+          </div>
         </div>
         <div id="mood"><h2>How are you Feeling today?</h2>
-        <form>
+        <form id="formMoodContainer">
           <label for="mood" id="moodLabel">Select how you feel:</label>
-          <select name="moods" id="listOfMoods"></select>
-          <option value="happy" class="moodOpt">Happy</option>
-          <option value="angry" class="moodOpt">Angry</option>
-          <option value="sad" class="moodOpt">Sad</option>
-          <option value="excited" class="moodOpt">Excited</option>
-          <option value="funny" class="moodOpt">Funny</option>
-          <option value="idk" class="moodOpt">I Don't Know</option>
+          <select name="moods" id="listOfMoods">
+            <option value="happy" class="moodOpt">Happy</option>
+            <option value="angry" class="moodOpt">Angry</option>
+            <option value="sad" class="moodOpt">Sad</option>
+            <option value="excited" class="moodOpt">Excited</option>
+            <option value="funny" class="moodOpt">Funny</option>
+            <option value="I Don't Know" class="moodOpt">I Don't Know</option>
+        </select>
         </form>
+        <div id="dropImghere"></div>
         </div>
       </form>
     </div>

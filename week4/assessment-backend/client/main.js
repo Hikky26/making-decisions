@@ -1,11 +1,15 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
-const addAffirmationBtn = document.getElementById('affirmation')
+const addAffirmationBtn = document.getElementById('add')
+const deleteAffirmationBtn = document.getElementById('delete')
+const moodSelect = document.getElementById('listOfMoods')
+const imgContainer = document.getElementById("dropImghere");
+
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
-        .then(res => {
-            const data = res.data;
+    .then(res => {
+        const data = res.data;
             alert(data);
     });
 };
@@ -14,44 +18,121 @@ const getCompliment = () => {
 //id is added to element to help style in css
 const getFortune = () => {
     axios.get("http://localhost:4000/api/fortune/")
-        .then(res => {
-            const data = res.data;
-            
-            const tempDiv = document.createElement('div');
-            tempDiv.setAttribute("id", "tempdiv")
-            tempDiv.textContent = data;
-            document.body.appendChild(tempDiv);
-
-            setTimeout(() => {
-                document.body.removeChild(tempDiv);
-              }, 3500);
-
-    
+    .then(res => {
+        const data = res.data;
+        
+        const tempDiv = document.createElement('div');
+        tempDiv.setAttribute("id", "tempdiv")
+        tempDiv.textContent = data;
+        fortuneBtn.appendChild(tempDiv);
+        
+        setTimeout(() => {
+            fortuneBtn.removeChild(tempDiv);
+        }, 3500);
+        
+        
+    })
+}
+const getAffirmation = () => {
+    axios.get('http://localhost:4000/api/affirmation').then(affirmCallback)
+    .catch((error) => {
+        console.log(error)
     })
 }
 
-//function to make a list of affirmations and display it
-function 
-const makeAffirmation = () => {
+///New goal here is to make affirmation cards. Similar to the house cards
+
+
+
+
+//function to  DELETE each affirmtation. The goal is to add buttions to each and when deleted the id is taken and the affirmation is removed from the list.
+const deleteAffirmation = (id) => {
+    axios.delete(`http://localhost:4000/api/affirmation/${id}`)
+    .then(affirmCallback)
+    .catch(function(error){
+        console.log(error);
+    });
+}
+
+//POST affirmation - good
+const submitAffirmation = (e) => {
+    e.preventDefault()
     
-    let newAffirmation = 
-    axios.post("http://localhost:4000/api/affirmation", body)
-        .then(function(res){
-            //Need to make a list that dislplays. Like for each item in the list make an li
-            for(let i=0; i<res.data.length; i++){
-                listAffirmations(res.data[i])
-            }
+    let affirmaton = document.getElementById('affirmationInput')
+    let bodyObj ={
+        text: affirmaton.value
+    }
+    createAffirmation(bodyObj)
+    
+    affirmaton.value = ''
+}
+const createAffirmation = body => {
+    axios.post('http://localhost:4000/api/affirmation', body)
+    .then(affirmCallback)
+    .catch(function(error){
+        console.log(error);
+    });
+}
+const affirmCallback =({data : affirmationArray}) =>{
+    affirmationArray.forEach((element) =>{
+        console.log(element.newAffText)
+    })
+    displayWordsAsList(affirmationArray)
+}
+const displayWordsAsList = (arr) => {
+    const listAffHere = document.querySelector('#listParent')
+    listAffHere.innerHTML = "";
+    for(let i = 0; i<arr.length; i++){
+        const delbtn = document.createElement('button')
+        const listItem = document.createElement("li")
+        listItem.classList.add('affList')
+        delbtn.classList.add('del')
+        listItem.textContent = arr[i].text;
+        delbtn.textContent = 'X'
+        console.log(arr[i])
+        listAffHere.appendChild(listItem)
+        listItem.appendChild(delbtn)
+        delbtn.addEventListener('click',() => {deleteAffirmation(arr[i].id)});
+        
+    }
+}
+    
+//function to test pPUT
+const updateMood = (event) =>{
+    event.preventDefault()
+    const selectedMood = moodSelect.value;
+    // console.log(selectedMood)
+    axios.put(`http://localhost:4000/api/mood`, {mood: selectedMood})
+        .then((res) => {
+            console.log(res.data);
+            displayImg(res.data)
         })
+        .catch((error) => {
+            console.log(error)
+        })
+
+}
+const getImgSrc = (moods) =>{
+    console.log(moods)
+    return moods.img;
+}
+const displayImg = (imageSrc) => {
+    const image = document.createElement('img');
+    getImgSrc(imageSrc)
+    image.classList.add("img")
+    image.src = imageSrc;
+    imgContainer.innerHTML= ""
+    imgContainer.appendChild(image)
+    // console.log(image.src)
 }
 
-const changeMood = () =>{
-
-}
-
-const deleteAffirmation = () => {
-    
-}
+getAffirmation()
+// showMood()
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-addAffirmationBtn.addEventListener('click', makeAffirmation)
+addAffirmationBtn.addEventListener('click', submitAffirmation)
+// deleteAffirmationBtn.addEventListener('click', deleteAffirmation(id))
+// the delete affirmation is in the display words as List function
+moodSelect.addEventListener('change', updateMood)
+

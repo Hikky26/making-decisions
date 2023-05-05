@@ -13,7 +13,7 @@
 
 button{
     display: inline-block;
-    padding: 20px 30px;
+    padding: 5px 30px;
     font-size: 30px;
     cursor: pointer;
     text-align: center;
@@ -42,10 +42,10 @@ input{
     left: 50%;
 }
 label{
-    font-size: 30px;
+    font-size: 24px;
 }
 #formDiv{
-    margin-top: 30px;
+    margin: 30px;
     left: 50px ;
 }
 #formContent{
@@ -58,4 +58,47 @@ label{
 }
 #listofAffirms{
     font-size: 20px;
+}
+
+.affbtn{
+    font-size: 18px;
+}
+#add{
+    background-color: green;
+}
+#delete{
+    background-color: red;
+}
+#mood{
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+img{
+    height: 500px;
+    width: 500px;
+}
+.affList{
+    font-weight: 900;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+}
+.del{
+    margin-left: 10px;
+    display: inline-block;
+    size: 8px;
+    color: red;
+    background-color: lightpink;
+    font-size: 18px;
+    padding: 8px;
+    border: 20px;
+
+}
+select{
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: 700;
 }
