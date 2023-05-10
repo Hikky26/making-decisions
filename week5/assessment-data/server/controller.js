@@ -12,6 +12,15 @@ const sequelize = new Sequelize (CONNECTION_STRING ,{
   })
 
 module.exports = {
+    getCountries: (req, res)=> {
+        sequelize.query(`
+        SELECT *
+        FROM countries`
+        ).then(dbRes =>
+            res.status(200).send(dbRes[0]))
+        .catch(err => console.log(err))
+    },
+    
     seed: (req, res) => {
         sequelize.query(`
             drop table if exists cities;
@@ -22,7 +31,12 @@ module.exports = {
                 name varchar
             );
 
-            *****YOUR CODE HERE*****
+            CREATE TABLE cities(
+                city_id SERIAL PRIMARY KEY,
+                name VARCHAR,
+                rating INTEGER,
+                country_id INEGER countries(country_id)
+            )
 
             insert into countries (name)
             values ('Afghanistan'),

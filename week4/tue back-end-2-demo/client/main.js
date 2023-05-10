@@ -11,6 +11,7 @@ const createMovie = body => axios.post(baseURL, body).then(moviesCallback).catch
 const deleteMovie = id => axios.delete(`${baseURL}/${id}`).then(moviesCallback).catch(errCallback)
 const updateMovie = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(moviesCallback).catch(errCallback)
 
+//this is used in event listener to submit data to kini
 function submitHandler(e) {
     e.preventDefault()
 
