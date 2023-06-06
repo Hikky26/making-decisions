@@ -1,11 +1,18 @@
+import React, {useState} from 'react';
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
-import Card from './Card';
+import Card from '../UI/Card';
 
 //A component in react is just a javascript function
 //must have one root element per funtion
 function ExpenseItem(props) {
-    const clickHandler = () => {alert('Clicked')}
+    
+    const [title, setTitle] = useState(props.title);
+    const clickHandler = () => {
+        setTitle('Updated');
+        alert(title)
+    }
+
       return( 
     <Card className= 'expense-item'>
         <ExpenseDate date= {props.date}></ExpenseDate>
