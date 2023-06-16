@@ -20,7 +20,7 @@ const DexScreen = ({addToTeam}) => {
     }, []);
    
    const pokeDexDisplay = allPokemon.map((pokemon, index) => {
-        return <DexCard pokemon={pokemon} addToTeam={addToTeam}/>
+        return <DexCard pokemon={pokemon} addToTeam={addToTeam} key={`${pokemon.name} + ${index}`}/>
    })
     
     return (

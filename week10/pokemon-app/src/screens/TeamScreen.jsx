@@ -1,6 +1,15 @@
-const TeamScreen = () => {
+import TeamCard from '../components/TeamCard'
+
+const TeamScreen = ({team}) => {
+    let teamDisplay = team.map((char, index) => {
+        return <TeamCard char={char} key={index}/>
+    })
+
     return (
-        <div>Team Screen</div>
+        <div>
+            <h1>My Team</h1>
+            {teamDisplay}
+        </div>
     )
 }
 

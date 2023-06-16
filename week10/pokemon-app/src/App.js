@@ -24,6 +24,7 @@ function App() {
       <Header />
       <Buttons setToggle={setToggle}/>
       {toggle ? <TeamScreen/> : <DexScreen addToTeam={addToTeam}/>}
+      {addToTeam}
     </div>
   );
 }
