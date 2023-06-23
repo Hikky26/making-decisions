@@ -1,0 +1,35 @@
+.header {
+    background-color: salmon;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+    box-sizing: border-box;
+}
+
+.nav-btn{
+    background-color: salmon;
+    border: none;
+    border-color: salmon;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.nav-btn:hover{
+    background-color: rgb(184, 106, 119);
+}
+
+#header-txt {
+    background-color: salmon;
+    border-color: salmon;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}

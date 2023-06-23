@@ -1,0 +1,39 @@
+.adBannerParentDiv{
+    /* background-color: blue; */
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+
+.adBannerTextDiv{
+    /* background-color: blueviolet; */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.blue-btn{
+    color: white;
+    background-color: turquoise;
+    border-radius: 0;
+    padding: 10px;
+    ;
+}
+
+.new-recipe{
+    color: white;
+    font-size: 20px;
+
+}
+
+#recipe-title{
+    color: salmon;
+    font-size: 50px;
+}
